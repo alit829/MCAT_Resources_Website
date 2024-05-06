@@ -1,0 +1,25 @@
+{
+
+    "builds": [{
+
+        "src": "MCAT_Resources_Website/wsgi.py",
+
+        "use": "@vercel/python",
+
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
+
+    }],
+
+    "routes": [
+
+        {
+
+            "src": "/(.*)",
+
+            "dest": "MCAT_Resources_Website/wsgi.py"
+
+        }
+
+    ]
+
+}

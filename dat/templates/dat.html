@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>DAT Resources</h1>
+<div class="row">
+    {% for resource in resources %}
+        <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ resource.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{resource.is_it_free}}</h6>
+                <p class="card-text">{{ resource.description }}</p>
+                <a href="{{ resource.material_link }}" class="btn btn-primary">Material Link</a>
+                {% if resource.web_link == "" %}
+                    <a href="{{ resource.web_link }}" class="btn btn-secondary disabled" tabindex="-1" aria-disabled="true">Web/Reddit Link</a>
+                {% else %}
+                    <a href="{{ resource.web_link }}" class="btn btn-secondary">Web/Reddit Link</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
