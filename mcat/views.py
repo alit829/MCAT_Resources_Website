@@ -5,4 +5,4 @@ from dat.models import Resource # accidentally put down the mcat resources in th
 # Create your views here.
 def index(request):
     resources = Resource.objects.all()
-    return render(request, 'mcat.html', resources)
+    return render(request, 'mcat.html', {'resources': resources})
